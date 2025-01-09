@@ -3,7 +3,7 @@ pipeline{
   stages{
       stage("Execute Playbook") {
           steps{
-             ansiblePlaybook become: true, credentialsId: 'Ansible-Centos-Direct', installation: 'Ansible', inventory: '/etc/ansible/hosts', playbook: '/etc/ansible/playbook.yml', vaultTmpPath: ''
+             ansiblePlaybook become: true, credentialsId: 'Ansible-Centos-Pkey', installation: 'Ansible', inventory: '/etc/ansible/hosts', playbook: '/etc/ansible/playbook.yml', vaultTmpPath: ''
           }
       }
 

@@ -1,0 +1,22 @@
+pipeline {
+    agent any
+
+    environment {
+        ANSIBLE_HOST = '192.168.0.110'
+        ANSIBLE_USER = 'champ'
+        ANSIBLE_PLAYBOOK = '/home/champ/playbook.yml'
+    }
+
+    stages {
+        stage('Run Ansible Playbook') {
+            steps {
+                sshagent(['your-ssh-credential-id']) {
+                    sh """
+                    ssh -o StrictHostKeyChecking=no ${ANSIBLE_USER}@${ANSIBLE_HOST} \\
+                    'ansible-playbook ${ANSIBLE_PLAYBOOK}'
+                    """
+                }
+            }
+        }
+    }
+}

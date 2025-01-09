@@ -3,7 +3,7 @@ pipeline{
   stages{
       stage("Execute Playbook") {
           steps{
-             ansiblePlaybook become: true, installation: 'Ansible', inventory: '/etc/ansible/hosts', playbook: '/etc/ansible/playbook.yml', vaultTmpPath: ''
+             ansiblePlaybook become: true, credentialsId: 'Ansible-PriKey-Ubuntu', installation: 'Ansible', inventory: '/etc/ansible/hosts', playbook: '/etc/ansible/playbook.yml', vaultTmpPath: ''
           }
       }
 

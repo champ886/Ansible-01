@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Run Ansible Playbook') {
             steps {
-                sshagent(['Yx5ZBZofN2ykNOTnz60lm3TAagjeIbMEaZh1Op3yN/8']) {
+                sshagent('Yx5ZBZofN2ykNOTnz60lm3TAagjeIbMEaZh1Op3yN/8') {
                     sh """
                     ssh -o StrictHostKeyChecking=no ${ANSIBLE_USER}@${ANSIBLE_HOST} \\
                     'ansible-playbook ${ANSIBLE_PLAYBOOK}'
